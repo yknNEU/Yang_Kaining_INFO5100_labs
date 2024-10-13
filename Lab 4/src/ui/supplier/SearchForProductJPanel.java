@@ -3,6 +3,8 @@ package ui.supplier;
 import model.Product;
 import model.Supplier;
 import java.awt.CardLayout;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SearchForProductJPanel extends javax.swing.JPanel {
@@ -82,8 +84,33 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
     }
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        
+        String strId = idField.getText();
+        if (strId.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Please enter the product Id", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int id = 0;
+        try {
+            id = Integer.parseInt(strId);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a number", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Product product = supplier.getProductCatalog().searchProduct(id);
+        if (product == null) {
+            JOptionPane.showMessageDialog(this, "Product not found", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        workArea.remove(this);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.previous(workArea);
+        ViewProductDetailJPanel vpdjp = new ViewProductDetailJPanel(workArea, product);
+        workArea.add("ViewProductDetailJPanelSupplier" + vpdjp.toString(), vpdjp);
+        layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {

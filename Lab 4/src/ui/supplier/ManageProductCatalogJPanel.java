@@ -63,7 +63,15 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
             new String [] {
                 "Product Name", "Product ID", "Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblProducts);
 
         btnView.setText("View Details...");

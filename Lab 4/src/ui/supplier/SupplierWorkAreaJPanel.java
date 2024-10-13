@@ -14,9 +14,11 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     public SupplierWorkAreaJPanel(JPanel mainWorkArea, Supplier supplier) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
-        
         this.supplier = supplier;
-        if (supplier != null) lblWelcome.setText("Welcome to Lab 4, "+supplier.getSupplyName());
+
+        if (supplier != null) {
+            lblWelcome.setText("Welcome to Lab 4, " + supplier.getSupplyName());
+        } 
         
         // masterOrderCatalog = moc;
     }

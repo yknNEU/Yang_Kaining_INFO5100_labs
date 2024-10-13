@@ -15,6 +15,8 @@ public class Product {
     public Product() {
         count++;
         id = count;
+        name = "";
+        price = 0;
 
         features = new ArrayList<>();
     }

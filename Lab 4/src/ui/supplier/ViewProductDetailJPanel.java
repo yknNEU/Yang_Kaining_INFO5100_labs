@@ -201,7 +201,20 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     }
     
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        product.setPrice(Integer.parseInt(txtPrice.getText()));
+        if (txtName.getText().isBlank() || txtPrice.getText().isBlank()) {
+            JOptionPane.showMessageDialog(this, "All fields are mandatory", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String stringPrice = txtPrice.getText();
+        int price = 0;
+        try {
+            price = Integer.parseInt(stringPrice);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Price should be a number", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        product.setPrice(price);
         product.setName(txtName.getText());
         saveFeatures();
         

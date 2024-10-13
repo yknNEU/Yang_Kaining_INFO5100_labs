@@ -16,7 +16,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.mainWorkArea = mainWorkArea;
         this.supplierDirectory = supplierDirectory;
         
-        lblWelcome.setText("Welcome to Lab 4!");
+        lblWelcome.setText("Welcome to Lab 4, Administrator");
     }
     
     private void initComponents() {

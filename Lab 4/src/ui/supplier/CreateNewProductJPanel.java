@@ -117,13 +117,22 @@ public class CreateNewProductJPanel extends javax.swing.JPanel {
     }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
+        if (txtName.getText().isBlank() || txtPrice.getText().isBlank()) {
+            JOptionPane.showMessageDialog(this, "All fields are mandatory", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String stringPrice = txtPrice.getText();
+        int price = 0;
+        try {
+            price = Integer.parseInt(stringPrice);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Price should be a number", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         Product product = supplier.getProductCatalog().addProduct();
         product.setName(txtName.getText());
-        String stringPrice = txtPrice.getText();
-        if (stringPrice.isEmpty() == false) {
-            int price = Integer.parseInt(stringPrice);
-            product.setPrice(price);
-        }
+        product.setPrice(price);
         JOptionPane.showMessageDialog(this, "Product successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
         backAction();
     }

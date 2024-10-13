@@ -21,7 +21,7 @@ public class ManageSuppliers extends javax.swing.JPanel {
     }
     
     public void refreshTable() {
-        DefaultTableModel model = (DefaultTableModel)tblSuppliers.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblSuppliers.getModel();
         model.setRowCount(0);
         
         for(Supplier s : supplierDirectory.getSupplierList()) {
@@ -128,7 +128,7 @@ public class ManageSuppliers extends javax.swing.JPanel {
     }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
-        // int i=1;
+        // int i = 1;
         AddSupplier as = new AddSupplier(userProcessContainer, supplierDirectory);
         userProcessContainer.add("AddSupplier", as);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
@@ -137,26 +137,26 @@ public class ManageSuppliers extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {
         int row = tblSuppliers.getSelectedRow();
-        if(row<0) {
+        if(row < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-        Supplier s = (Supplier)tblSuppliers.getValueAt(row, 0);
+        Supplier s = (Supplier) tblSuppliers.getValueAt(row, 0);
         ViewSupplier vs = new ViewSupplier(userProcessContainer, s);
         userProcessContainer.add("ViewSupplier", vs);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {
         int row = tblSuppliers.getSelectedRow();
         
-        if(row<0) {
+        if(row < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Supplier s = (Supplier)tblSuppliers.getValueAt(row, 0);
+        Supplier s = (Supplier) tblSuppliers.getValueAt(row, 0);
         supplierDirectory.removeSupplier(s);
         refreshTable();
     }
