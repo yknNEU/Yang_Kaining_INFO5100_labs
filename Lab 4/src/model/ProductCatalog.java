@@ -1,16 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Rushabh
- */
 public class ProductCatalog {
     
     private ArrayList<Product> productCatalog;
@@ -34,7 +25,6 @@ public class ProductCatalog {
     }
     
     public Product searchProduct(int id) {
-
         for(Product p : productCatalog) {
             if(p.getId() == id) {
                 return p;

@@ -1,16 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Rushabh
- */
 public class SupplierDirectory {
     
     private ArrayList<Supplier> supplierList;
@@ -41,5 +32,4 @@ public class SupplierDirectory {
         }
         return null;
     }
-    
 }

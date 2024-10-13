@@ -1,28 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Rushabh
- */
 public class Product {
     
     private String name;
     private int price;
     private int id;
 
+    private ArrayList<Feature> features;
+
     private static int count = 0;
     
     public Product() {
         count++;
         id = count;
-        
+
+        features = new ArrayList<>();
     }
 
     public String getName() {
@@ -37,7 +31,6 @@ public class Product {
         return id;
     }
     
-    
     public int getPrice() {
         return price;
     }
@@ -46,10 +39,18 @@ public class Product {
         this.price = price;
     }
 
-    
+    public ArrayList<Feature> getFeatures() {
+        return features;
+    }
+
+    public Feature addNewFeature() {
+        Feature feature = new Feature();
+        features.add(feature);
+        return feature;
+    }
+
     @Override
     public String toString() {
         return name;
     }
-    
 }
