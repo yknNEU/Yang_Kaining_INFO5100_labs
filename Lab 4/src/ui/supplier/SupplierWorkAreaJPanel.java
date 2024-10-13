@@ -56,7 +56,6 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnSupplierProfile.setText("Update Profile");
-        btnSupplierProfile.setEnabled(false);
         btnSupplierProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupplierProfileActionPerformed(evt);
@@ -151,8 +150,10 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
+        ManageProfileJPanel mpjp = new ManageProfileJPanel(lblWelcome, supplier);
+        workArea.add("ManageProfileJPanel", mpjp);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
     }
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {

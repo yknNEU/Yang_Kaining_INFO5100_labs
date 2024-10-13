@@ -32,6 +32,26 @@ public class ProductCatalog {
         }
         return null;
     }
+
+    public Product searchByName(String name) {
+        for(Product p : productCatalog) {
+            if(p.getName().equals(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Product searchByFeature(String name, Object value) {
+        for(Product p : productCatalog) {
+            for(Feature f : p.getFeatures()) {
+                if (f.getName().equals(name) && f.getValue().equals(value)) {
+                    return p;
+                }
+            }
+        }
+        return null;
+    }
     
     public int getProductCount(){
         return productCatalog.size();

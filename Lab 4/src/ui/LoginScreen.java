@@ -118,6 +118,7 @@ public class LoginScreen extends javax.swing.JPanel {
         JPanel selectedPanel = (JPanel) cmbRoles.getSelectedItem();
 
         if (selectedPanel instanceof SupplierWorkAreaJPanel) {
+            selectedSupplier = (Supplier) cmbSuppliers.getSelectedItem();
             if (selectedSupplier == null) {
                 JOptionPane.showMessageDialog(this, "Please select a supplier to login under the supplier role.");
                 return;

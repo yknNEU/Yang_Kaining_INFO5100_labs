@@ -2,11 +2,14 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class Product {
     
     private String name;
     private int price;
     private int id;
+    private ImageIcon logoImage;
 
     private ArrayList<Feature> features;
 
@@ -17,6 +20,7 @@ public class Product {
         id = count;
         name = "";
         price = 0;
+        logoImage = null;
 
         features = new ArrayList<>();
     }
@@ -49,6 +53,18 @@ public class Product {
         Feature feature = new Feature();
         features.add(feature);
         return feature;
+    }
+
+    public void removeFeature(Feature feature) {
+        features.remove(feature);
+    }
+
+    public ImageIcon getLogoImage() {
+        return logoImage;
+    }
+
+    public void setLogoImage(ImageIcon logoImage) {
+        this.logoImage = logoImage;
     }
 
     @Override
